@@ -105,3 +105,7 @@ svg{
 .notification-container.show{
    transform:translateY(-50px);
 }
+.rules {
+ margin-left:30% ;
+ font-size: 30px;
+}

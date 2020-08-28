@@ -2,7 +2,7 @@ body{
   background-color: #32444f;
   display:flex;
   flex-direction:column;
-  text-align:center;
+  /* text-align:center; */
   overflow: hidden;
   color: #fff;
   font-family:Arial, Helvetica, sans-serif;
@@ -33,7 +33,7 @@ svg{
   margin: auto; /* push everything to middle */
   height: 350px;
   width: 450px;
-  border:1px solid red;
+  /* border:1px solid red; */
 }
 .wrong-letters-container{
   position:absolute;
@@ -69,6 +69,7 @@ svg{
   background: #5840b5;
   border-radius: 5px;
   width: 200px;
+  text-align: center;
   margin-left:50%;
   transform: translateX(-50%);
   transform: translateY(-50%);

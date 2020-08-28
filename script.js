@@ -10,8 +10,8 @@ const wrongLetter= document.getElementById('wrong-letters');
 const figurePart= document.querySelectorAll('.hangman-part');
 const words=['apple','programming', 'javascript', 'frontend','masaischool'];
 //get random word
-const selectedWord= words[Math.floor(Math.random()*words.length)];
-const correctLetters=['a', 'p', 'p', 'l', 'e'], wrongLetters=[];
+let selectedWord= words[Math.floor(Math.random()*words.length)];
+const correctLetters=['a', 'p', 'r', 'n', 'e'], wrongLetters=[];
 
 const displayWord=()=>{
     worldEl.innerHTML=
@@ -53,10 +53,7 @@ const displayWord=()=>{
             console.log(correctLetters)
         }
     })
-    playAgain.addEventListener('click', ()=>{
-        popup.style.display='none';
-        correctLetters=[]
-    })
+   
 }
 const updateWrongLettersEl=letter=>{
     // display wrong letter
@@ -89,8 +86,20 @@ const showNofication=()=>{
     },2000);
 }
 
+// play again
+playAgain.addEventListener('click', ()=>{
+    popup.style.display='none';
+    // empty arrays
+    correctLetters.splice(0);
+    wrongLetters.splice(0);
+    worldEl.innerHTML='';
+    wrongLetter.innerHTML='';
+    updateWrongLettersEl()
+    //get new word
+    selectedWord= words[Math.floor(Math.random()*words.length)];
+    displayWord();
 
-
+})
 
 
 displayWord();

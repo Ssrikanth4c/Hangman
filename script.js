@@ -62,7 +62,12 @@ const updateWrongLettersEl=()=>{
 }
 
 const showNofication=()=>{
-     
+    console.log('show')
+     notification.classList.add('show');
+    //  remove notification after 2 sec
+    setTimeout(()=>{
+        notification.classList.remove('show');
+    },2000);
 }
 
 

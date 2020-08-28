@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Hangman</title>
+</head>
+
+<body>
+  <h1 class='title'>Hangman</h1>
+  <div class='game-container'>
+    <svg class='figure-cont' height='250' width='200'>
+      <!--  base  -->
+      <line x1="60" y1="20" x2="60" y2="250" />
+      <!--  base-1  -->
+      <line x1="40" y1="248" x2="80" y2="248" />
+      <!--   celing -->
+      <line x1="60" y1="20" x2="140" y2="20" />
+      <!--  hanging thread  -->
+      <line x1="130" y1="20" x2="130" y2="60" />
+      <!--   body -->
+      <!--   1.head -->
+      <circle class='hangman-part' cx="130" cy="80" r="20" />
+      <!--   2.chest -->
+      <line class='hangman-part' x1="130" y1="100" x2="130" y2="180" />
+      <!-- 3. left-arms -->
+      <line class='hangman-part' x1="130" y1="120" x2="100" y2="150" />
+      <!-- 4. right-arms -->
+      <line class='hangman-part' x1="130" y1="120" x2="160" y2="150" />
+      <!-- 4. left-leg -->
+      <line class='hangman-part' x1="130" y1="180" x2="100" y2="200" />
+      <!-- 4. right-leg -->
+      <line class='hangman-part' x1="130" y1="180" x2="160" y2="200" />
+    </svg>
+
+    <!-- wrong letters -->
+    <div class="wrong-letters-container">
+      <div id="wrong-letters">
+        <!--   dynaically inseart letters   -->
+        <!-- <p>wrong</p>
+        <span>a,v,b,c</span> -->
+      </div>
+    </div>
+    <div class="word" id="word">
+      <!-- <div class="letter">h</div>
+      <div class="letter">e</div>
+      <div class="letter">l</div>
+      <div class="letter">l</div>
+      <div class="letter">o</div> -->
+    </div>
+  </div>
+  <!-- final messages -->
+  <div class="popup-container" id="popup-container">
+    <h2 id="final-message"></h2>
+    <button id="play-button">Play Again</button>
+  </div>
+  <!-- Notification-- alert box -->
+  <div class="notification-container" id="notification-container">
+    <p>You have already entered this letter</p>
+  </div>
+</body>
+<script src="script.js"></script>
+</html>

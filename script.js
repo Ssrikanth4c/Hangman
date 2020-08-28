@@ -4,6 +4,7 @@ const playAgain= document.getElementById('play-button');
 const popup= document.getElementById('popup-container');
 const notification= document.getElementById('notification-container');
 const finalMessage= document.getElementById('final-message');
+const wrongLetter= document.getElementById('wrong-letters');
 
 // hang figure parts while wrong letter
 const figurePart= document.querySelectorAll('.hangman-part');
@@ -34,7 +35,7 @@ const displayWord=()=>{
     window.addEventListener('keydown', e=>{
         if(e.keyCode>=65 && e.keyCode<=90){
             const letter= e.key.toLowerCase();
-            console.log(letter)
+
             if(selectedWord.includes(letter)){
                 if(!correctLetters.includes(letter)){
                     correctLetters.push(letter);
@@ -46,8 +47,8 @@ const displayWord=()=>{
                 // wrong letters
                 if(!wrongLetters.includes(letter)){
                     wrongLetters.push(letter);
-                    updateWrongLettersEl();
-                }
+                    updateWrongLettersEl(letter);
+                }else showNofication()
             }
             console.log(correctLetters)
         }
@@ -57,8 +58,26 @@ const displayWord=()=>{
         correctLetters=[]
     })
 }
-const updateWrongLettersEl=()=>{
-    console.log('sree')
+const updateWrongLettersEl=letter=>{
+    // display wrong letter
+    wrongLetter.innerHTML=`
+    ${wrongLetters.length>0? '<p>Wrong</p>': ''}
+    ${wrongLetters.map(ele=>
+        `<span>${ele}</span>
+        `)}
+    `;
+    // display hanging parts
+    figurePart.forEach((part, ind)=>{
+        const error= wrongLetters.length;
+        if(ind<error)
+            part.style.display='block';
+        else part.style.display='none';
+    })
+    //hang all parts try again
+    if(wrongLetters.length === figurePart.length){
+        finalMessage.textContent='try again!';
+        popup.style.display='block';
+    }
 }
 
 const showNofication=()=>{
@@ -69,17 +88,6 @@ const showNofication=()=>{
         notification.classList.remove('show');
     },2000);
 }
-
-
-
-
-
-
-
-
-
-
-
 
 
 

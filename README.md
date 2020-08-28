@@ -1,5 +1,6 @@
 # Hangman rules
 * enter letter from alphabet
-* if letter is contained in word, then takes another turn to guessing a letter.
-* if letter is not contained in the word, body parts are hanged
+* predict correct word to complete this game.
+* player guesses letters, one at a time, until they fill in the word.
+* Each time a correct letter is guessed from the word, the puzzle giver fills in all the corresponding empty dashes.
 * click  <b>play again</b> button to restart the game.
